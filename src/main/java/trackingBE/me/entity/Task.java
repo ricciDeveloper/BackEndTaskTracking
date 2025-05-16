@@ -1,12 +1,13 @@
-package trackingBE.me.Entity;
+package trackingBE.me.entity;
 
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "Tasks")
-public class Tasks {
+@Table(name = "tasks")
+public class Task {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,9 +16,11 @@ public class Tasks {
 
     private LocalDateTime dataTask;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
     private User owner;
 
+    // Getters e Setters
     public Long getId() {
         return id;
     }

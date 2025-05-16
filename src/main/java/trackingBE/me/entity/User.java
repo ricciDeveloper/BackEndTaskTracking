@@ -1,4 +1,4 @@
-package trackingBE.me.Entity;
+package trackingBE.me.entity;
 
 import jakarta.persistence.*;
 
