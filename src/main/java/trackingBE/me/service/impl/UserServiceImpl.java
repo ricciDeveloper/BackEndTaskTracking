@@ -37,6 +37,6 @@ public class UserServiceImpl  implements UserService {
 
     @Override
     public List<User> findByUserName(String username) {
-        return userRepository.findByTaskContainingIgnoreCase(username);
+        return userRepository.findUsersByTaskContent(username);
     }
 }

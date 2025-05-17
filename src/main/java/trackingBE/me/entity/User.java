@@ -1,5 +1,7 @@
 package trackingBE.me.entity;
 
+import java.util.List;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -18,6 +20,18 @@ public class User {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "admin_id")
     private User admin;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Task> tasks;
+
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 
     public Long getId() {
         return id;
